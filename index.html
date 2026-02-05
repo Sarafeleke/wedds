@@ -38,20 +38,20 @@ body{
 /* Invitation Card */
 .invitation{
   max-width:960px;
-  margin:90px auto;
+  margin:80px auto;
   padding:90px 50px;
   text-align:center;
   background:linear-gradient(145deg,#2a2e32,#1c1f23);
   border:2px solid #cfd4d8;
-  box-shadow:0 0 80px rgba(207,212,216,.35);
+  box-shadow:0 0 90px rgba(207,212,216,.35);
   position:relative;
 }
 
-/* SVG Floral Corners */
+/* Floral SVG Corners */
 .corner{
   position:absolute;
   width:130px;
-  opacity:.8;
+  opacity:.85;
 }
 .top-left{top:-18px;left:-18px}
 .bottom-right{bottom:-18px;right:-18px;transform:rotate(180deg)}
@@ -65,66 +65,61 @@ h2{
   animation:fadeUp 1.5s forwards;
 }
 
-/* Animated Main Title */
+/* MAIN TITLE – POWER MOTION */
 .wedding-title{
   font-family:'Great Vibes',cursive;
   font-size:76px;
   background:linear-gradient(120deg,#9fa4a9,#ffffff,#9fa4a9);
+  background-size:300%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:shimmer 6s infinite, floatText 5s ease-in-out infinite;
+
+  animation:
+    titleEntrance 1.8s cubic-bezier(.22,1,.36,1) forwards,
+    shimmer 5s linear infinite,
+    waveFloat 3.5s ease-in-out infinite;
+
+  text-shadow:
+    0 0 25px rgba(255,255,255,.35),
+    0 0 70px rgba(255,255,255,.2);
 }
 
-/* Names Motion */
+/* Names – Strong Presence */
 .names{
   font-size:44px;
   font-weight:600;
   margin-top:30px;
-  color:#f1f3f5;
-  animation:zoomGlow 4s ease-in-out infinite alternate;
+  color:#f8f9fa;
+
+  animation:
+    nameReveal 1.8s ease forwards,
+    powerPulse 2.6s ease-in-out infinite;
+
+  text-shadow:
+    0 0 30px rgba(255,255,255,.4),
+    0 0 70px rgba(255,255,255,.25);
 }
 
-@keyframes shimmer{
-  0%{background-position:0%}
-  100%{background-position:200%}
-}
-@keyframes floatText{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
-@keyframes zoomGlow{
-  from{transform:scale(1);text-shadow:none}
-  to{transform:scale(1.03);text-shadow:0 0 25px rgba(255,255,255,.4)}
-}
-
+/* Dividers */
 .divider{
   width:170px;height:2px;
   background:linear-gradient(to right,transparent,#cfd4d8,transparent);
   margin:40px auto;
   animation:expand 2s ease;
 }
-@keyframes expand{
-  from{width:0}
-  to{width:170px}
-}
 
-/* Text Reveal */
+/* Text */
 .details{
   font-size:18px;
   color:#d6d9dc;
   line-height:1.9;
-  animation:fadeUp 2s ease forwards;
+  animation:fadeUp 2s ease forwards, textBreath 6s ease-in-out infinite;
 }
 .amharic{
   margin-top:20px;
   font-size:17px;
   color:#cfd4d8;
-  animation:fadeUp 2.5s ease forwards;
-}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(25px)}
-  to{opacity:1;transform:translateY(0)}
+  animation:fadeUp 2.5s ease forwards, textBreath 6s ease-in-out infinite;
 }
 
 /* Countdown */
@@ -140,11 +135,7 @@ h2{
   min-width:85px;
   animation:pulse 2.5s infinite;
 }
-@keyframes pulse{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.06)}
-}
-.time-box span{font-size:28px;display:block;color:#fff}
+.time-box span{font-size:28px;color:#fff}
 .time-box small{font-size:12px;letter-spacing:2px;color:#cfd4d8}
 
 /* Photos */
@@ -159,7 +150,7 @@ h2{
   width:220px;height:300px;
   object-fit:cover;
   border:3px solid #cfd4d8;
-  box-shadow:0 0 35px rgba(207,212,216,.45);
+  box-shadow:0 0 40px rgba(207,212,216,.45);
 }
 
 /* RSVP */
@@ -174,8 +165,8 @@ h2{
   transition:.4s;
 }
 .rsvp a:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(255,255,255,.4);
+  transform:translateY(-6px);
+  box-shadow:0 14px 35px rgba(255,255,255,.4);
 }
 
 /* Map */
@@ -188,9 +179,26 @@ iframe{
 /* QR */
 .qr{margin-top:50px;color:#e5e8eb}
 
+/* Animations */
+@keyframes titleEntrance{
+  0%{opacity:0;transform:translateY(60px) scale(.85);letter-spacing:0}
+  100%{opacity:1;transform:translateY(0) scale(1);letter-spacing:3px}
+}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+@keyframes waveFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes nameReveal{from{opacity:0;transform:scale(.9) translateY(20px)}to{opacity:1}}
+@keyframes powerPulse{0%,100%{transform:scale(1);letter-spacing:1px}50%{transform:scale(1.06);letter-spacing:3px}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(25px)}to{opacity:1}}
+@keyframes expand{from{width:0}to{width:170px}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes textBreath{0%,100%{letter-spacing:0}50%{letter-spacing:1.5px}}
+
+/* Mobile */
 @media(max-width:600px){
-  .wedding-title{font-size:54px}
-  .names{font-size:32px}
+  .invitation{padding:60px 22px;margin:40px 14px}
+  .wedding-title{font-size:52px}
+  .names{font-size:30px}
+  .photos img{width:160px;height:220px}
   .countdown{flex-wrap:wrap}
 }
 </style>
@@ -198,7 +206,7 @@ iframe{
 
 <body>
 
-<!-- Silver Dust -->
+<!-- Dust -->
 <script>
 for(let i=0;i<60;i++){
   let d=document.createElement("div");
@@ -243,8 +251,8 @@ request the honor of your presence
 <div class="countdown" id="countdown"></div>
 
 <div class="photos">
-  <img src="img2.png">
   <img src="img1.png">
+  <img src="img2.png">
 </div>
 
 <div class="details">
@@ -285,6 +293,6 @@ new QRCode(document.getElementById("qrcode"),{
   colorLight:"#1c1f23"
 });
 </script>
+
 </body>
 </html>
-

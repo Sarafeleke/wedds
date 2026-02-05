@@ -1,114 +1,290 @@
-/* =========================
-   MOBILE RESPONSIVE DESIGN
-   ========================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Invitation</title>
 
-@media (max-width: 768px) {
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
 
-  body {
-    background: radial-gradient(circle at top, #f1f3f5, #d9dde1);
-  }
+<!-- QR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
-  .invitation {
-    margin: 30px 12px;
-    padding: 50px 20px;
-  }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
 
-  /* Titles */
-  h2 {
-    font-size: 15px;
-    letter-spacing: 3px;
-  }
-
-  .wedding-title {
-    font-size: 48px;
-    line-height: 1.1;
-  }
-
-  .names {
-    font-size: 30px;
-    margin-top: 20px;
-  }
-
-  .details,
-  .amharic {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  /* Divider */
-  .divider {
-    width: 120px;
-    margin: 30px auto;
-  }
-
-  /* Countdown */
-  .countdown {
-    gap: 12px;
-    margin: 35px 0;
-  }
-
-  .time-box {
-    min-width: 65px;
-    padding: 12px 10px;
-  }
-
-  .time-box span {
-    font-size: 20px;
-  }
-
-  .time-box small {
-    font-size: 10px;
-  }
-
-  /* Photos */
-  .photos {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .photos img {
-    width: 90%;
-    height: auto;
-    max-width: 300px;
-  }
-
-  /* RSVP Button */
-  .rsvp a {
-    padding: 14px 36px;
-    font-size: 14px;
-  }
-
-  /* Map */
-  iframe {
-    height: 240px;
-  }
-
-  /* QR */
-  .qr p {
-    font-size: 14px;
-  }
-
-  /* Floral SVG Corners */
-  .corner {
-    width: 85px;
-  }
-
+body{
+  font-family:'Cinzel',serif;
+  background:radial-gradient(circle at top,#eef1f3,#dfe3e6 75%);
+  color:#9fa4a9;
+  overflow-x:hidden;
 }
 
-/* Extra small phones */
-@media (max-width: 420px) {
-
-  .wedding-title {
-    font-size: 42px;
-  }
-
-  .names {
-    font-size: 26px;
-  }
-
-  .details,
-  .amharic {
-    font-size: 14px;
-  }
-
+/* Floating Silver Dust */
+.dust{
+  position:fixed;
+  width:4px;height:4px;
+  background:#cfd4d8;
+  border-radius:50%;
+  opacity:.35;
+  animation:floatDust 24s linear infinite;
 }
+@keyframes floatDust{
+  from{transform:translateY(120vh)}
+  to{transform:translateY(-20vh)}
+}
+
+/* Invitation Card */
+.invitation{
+  max-width:960px;
+  margin:90px auto;
+  padding:90px 50px;
+  text-align:center;
+  background:linear-gradient(145deg,#2a2e32,#1c1f23);
+  border:2px solid #cfd4d8;
+  box-shadow:0 0 80px rgba(207,212,216,.35);
+  position:relative;
+}
+
+/* SVG Floral Corners */
+.corner{
+  position:absolute;
+  width:130px;
+  opacity:.8;
+}
+.top-left{top:-18px;left:-18px}
+.bottom-right{bottom:-18px;right:-18px;transform:rotate(180deg)}
+
+h2{
+  letter-spacing:5px;
+  font-size:20px;
+  margin-bottom:18px;
+  color:#e5e8eb;
+  opacity:0;
+  animation:fadeUp 1.5s forwards;
+}
+
+/* Animated Main Title */
+.wedding-title{
+  font-family:'Great Vibes',cursive;
+  font-size:76px;
+  background:linear-gradient(120deg,#9fa4a9,#ffffff,#9fa4a9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shimmer 6s infinite, floatText 5s ease-in-out infinite;
+}
+
+/* Names Motion */
+.names{
+  font-size:44px;
+  font-weight:600;
+  margin-top:30px;
+  color:#f1f3f5;
+  animation:zoomGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes shimmer{
+  0%{background-position:0%}
+  100%{background-position:200%}
+}
+@keyframes floatText{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes zoomGlow{
+  from{transform:scale(1);text-shadow:none}
+  to{transform:scale(1.03);text-shadow:0 0 25px rgba(255,255,255,.4)}
+}
+
+.divider{
+  width:170px;height:2px;
+  background:linear-gradient(to right,transparent,#cfd4d8,transparent);
+  margin:40px auto;
+  animation:expand 2s ease;
+}
+@keyframes expand{
+  from{width:0}
+  to{width:170px}
+}
+
+/* Text Reveal */
+.details{
+  font-size:18px;
+  color:#d6d9dc;
+  line-height:1.9;
+  animation:fadeUp 2s ease forwards;
+}
+.amharic{
+  margin-top:20px;
+  font-size:17px;
+  color:#cfd4d8;
+  animation:fadeUp 2.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Countdown */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin:45px 0;
+}
+.time-box{
+  border:1px solid #cfd4d8;
+  padding:18px 20px;
+  min-width:85px;
+  animation:pulse 2.5s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+.time-box span{font-size:28px;display:block;color:#fff}
+.time-box small{font-size:12px;letter-spacing:2px;color:#cfd4d8}
+
+/* Photos */
+.photos{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  margin:60px 0;
+  flex-wrap:wrap;
+}
+.photos img{
+  width:220px;height:300px;
+  object-fit:cover;
+  border:3px solid #cfd4d8;
+  box-shadow:0 0 35px rgba(207,212,216,.45);
+}
+
+/* RSVP */
+.rsvp{margin-top:50px}
+.rsvp a{
+  padding:15px 42px;
+  background:linear-gradient(135deg,#cfd4d8,#ffffff);
+  color:#1c1f23;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.4s;
+}
+.rsvp a:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(255,255,255,.4);
+}
+
+/* Map */
+.map{margin-top:60px}
+iframe{
+  width:100%;height:300px;
+  border:2px solid #cfd4d8;
+}
+
+/* QR */
+.qr{margin-top:50px;color:#e5e8eb}
+
+@media(max-width:600px){
+  .wedding-title{font-size:54px}
+  .names{font-size:32px}
+  .countdown{flex-wrap:wrap}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Silver Dust -->
+<script>
+for(let i=0;i<60;i++){
+  let d=document.createElement("div");
+  d.className="dust";
+  d.style.left=Math.random()*100+"vw";
+  d.style.animationDelay=Math.random()*24+"s";
+  document.body.appendChild(d);
+}
+</script>
+
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3">
+</audio>
+
+<div class="invitation">
+
+<svg class="corner top-left" viewBox="0 0 200 200">
+  <path d="M10,120 C60,20 160,20 190,120" fill="none" stroke="#cfd4d8" stroke-width="3"/>
+</svg>
+<svg class="corner bottom-right" viewBox="0 0 200 200">
+  <path d="M10,120 C60,20 160,20 190,120" fill="none" stroke="#cfd4d8" stroke-width="3"/>
+</svg>
+
+<h2>You Are Cordially Invited</h2>
+
+<div class="wedding-title">Wedding Ceremony</div>
+
+<div class="divider"></div>
+
+<div class="details">
+Together with their families<br>
+request the honor of your presence
+</div>
+
+<div class="amharic">
+<strong>በቤተሰቦቻችን ስም</strong><br>
+በጋብቻችን ላይ እንድትገኙ በክብር እንጋብዛችኋለን
+</div>
+
+<div class="names">Sara & Daniel</div>
+
+<div class="countdown" id="countdown"></div>
+
+<div class="photos">
+  <img src="img2.png">
+  <img src="img1.png">
+</div>
+
+<div class="details">
+Saturday · 20 July 2026 · 4:00 PM<br>
+Skylight Grand Hall · Addis Ababa
+</div>
+
+<div class="rsvp"><a href="#">RSVP</a></div>
+
+<div class="map">
+<iframe src="https://www.google.com/maps?q=Skylight%20Hotel%20Addis%20Ababa&output=embed"></iframe>
+</div>
+
+<div class="qr">
+<p>Scan to View Invitation</p>
+<div id="qrcode"></div>
+</div>
+
+</div>
+
+<script>
+const weddingDate=new Date("July 20, 2026 16:00:00").getTime();
+setInterval(()=>{
+  const now=new Date().getTime();
+  const d=weddingDate-now;
+  if(d<0)return;
+  document.getElementById("countdown").innerHTML=`
+  <div class="time-box"><span>${Math.floor(d/(1000*60*60*24))}</span><small>DAYS</small></div>
+  <div class="time-box"><span>${Math.floor((d%(1000*60*60*24))/(1000*60*60))}</span><small>HOURS</small></div>
+  <div class="time-box"><span>${Math.floor((d%(1000*60*60))/(1000*60))}</span><small>MIN</small></div>
+  <div class="time-box"><span>${Math.floor((d%(1000*60))/1000)}</span><small>SEC</small></div>`;
+},1000);
+
+new QRCode(document.getElementById("qrcode"),{
+  text:window.location.href,
+  width:140,height:140,
+  colorDark:"#cfd4d8",
+  colorLight:"#1c1f23"
+});
+</script>
+
+</body>
+</html>

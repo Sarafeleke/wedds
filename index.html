@@ -16,19 +16,19 @@
 
 body{
   font-family:'Cinzel',serif;
-  background:radial-gradient(circle at top,#d3e0de,#c8dedb 75%);
-  color:#d6b97a;
+  background:radial-gradient(circle at top,#eef1f3,#dfe3e6 75%);
+  color:#9fa4a9;
   overflow-x:hidden;
 }
 
-/* Floating Gold Dust */
+/* Floating Silver Dust */
 .dust{
   position:fixed;
   width:4px;height:4px;
-  background:#d6b97a;
+  background:#cfd4d8;
   border-radius:50%;
-  opacity:.25;
-  animation:floatDust 22s linear infinite;
+  opacity:.35;
+  animation:floatDust 24s linear infinite;
 }
 @keyframes floatDust{
   from{transform:translateY(120vh)}
@@ -41,9 +41,9 @@ body{
   margin:90px auto;
   padding:90px 50px;
   text-align:center;
-  background:linear-gradient(145deg,#0c2521,#061412);
-  border:2px solid #d6b97a;
-  box-shadow:0 0 80px rgba(214,185,122,.25);
+  background:linear-gradient(145deg,#2a2e32,#1c1f23);
+  border:2px solid #cfd4d8;
+  box-shadow:0 0 80px rgba(207,212,216,.35);
   position:relative;
 }
 
@@ -51,7 +51,7 @@ body{
 .corner{
   position:absolute;
   width:130px;
-  opacity:.9;
+  opacity:.8;
 }
 .top-left{top:-18px;left:-18px}
 .bottom-right{bottom:-18px;right:-18px;transform:rotate(180deg)}
@@ -60,6 +60,7 @@ h2{
   letter-spacing:5px;
   font-size:20px;
   margin-bottom:18px;
+  color:#e5e8eb;
   opacity:0;
   animation:fadeUp 1.5s forwards;
 }
@@ -68,10 +69,10 @@ h2{
 .wedding-title{
   font-family:'Great Vibes',cursive;
   font-size:76px;
-  background:linear-gradient(120deg,#b9985a,#f2ddb0,#b9985a);
+  background:linear-gradient(120deg,#9fa4a9,#ffffff,#9fa4a9);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:shimmer 5s infinite, floatText 4s ease-in-out infinite;
+  animation:shimmer 6s infinite, floatText 5s ease-in-out infinite;
 }
 
 /* Names Motion */
@@ -79,7 +80,8 @@ h2{
   font-size:44px;
   font-weight:600;
   margin-top:30px;
-  animation:zoomGlow 3s ease-in-out infinite alternate;
+  color:#f1f3f5;
+  animation:zoomGlow 4s ease-in-out infinite alternate;
 }
 
 @keyframes shimmer{
@@ -88,16 +90,16 @@ h2{
 }
 @keyframes floatText{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-8px)}
+  50%{transform:translateY(-6px)}
 }
 @keyframes zoomGlow{
   from{transform:scale(1);text-shadow:none}
-  to{transform:scale(1.04);text-shadow:0 0 20px rgba(214,185,122,.5)}
+  to{transform:scale(1.03);text-shadow:0 0 25px rgba(255,255,255,.4)}
 }
 
 .divider{
   width:170px;height:2px;
-  background:linear-gradient(to right,transparent,#d6b97a,transparent);
+  background:linear-gradient(to right,transparent,#cfd4d8,transparent);
   margin:40px auto;
   animation:expand 2s ease;
 }
@@ -109,13 +111,14 @@ h2{
 /* Text Reveal */
 .details{
   font-size:18px;
-  color:#efe1bd;
+  color:#d6d9dc;
   line-height:1.9;
   animation:fadeUp 2s ease forwards;
 }
 .amharic{
   margin-top:20px;
   font-size:17px;
+  color:#cfd4d8;
   animation:fadeUp 2.5s ease forwards;
 }
 
@@ -132,17 +135,17 @@ h2{
   margin:45px 0;
 }
 .time-box{
-  border:1px solid #d6b97a;
+  border:1px solid #cfd4d8;
   padding:18px 20px;
   min-width:85px;
-  animation:pulse 2s infinite;
+  animation:pulse 2.5s infinite;
 }
 @keyframes pulse{
   0%,100%{transform:scale(1)}
-  50%{transform:scale(1.05)}
+  50%{transform:scale(1.06)}
 }
-.time-box span{font-size:28px;display:block}
-.time-box small{font-size:12px;letter-spacing:2px}
+.time-box span{font-size:28px;display:block;color:#fff}
+.time-box small{font-size:12px;letter-spacing:2px;color:#cfd4d8}
 
 /* Photos */
 .photos{
@@ -155,17 +158,16 @@ h2{
 .photos img{
   width:220px;height:300px;
   object-fit:cover;
-  border:3px solid #d6b97a;
-  box-shadow:0 0 35px rgba(214,185,122,.4);
-  animation:fadeUp 2s ease forwards;
+  border:3px solid #cfd4d8;
+  box-shadow:0 0 35px rgba(207,212,216,.45);
 }
 
 /* RSVP */
 .rsvp{margin-top:50px}
 .rsvp a{
   padding:15px 42px;
-  background:linear-gradient(135deg,#d6b97a,#f2ddb0);
-  color:#071917;
+  background:linear-gradient(135deg,#cfd4d8,#ffffff);
+  color:#1c1f23;
   border-radius:30px;
   text-decoration:none;
   font-weight:bold;
@@ -173,18 +175,18 @@ h2{
 }
 .rsvp a:hover{
   transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(214,185,122,.4);
+  box-shadow:0 12px 30px rgba(255,255,255,.4);
 }
 
 /* Map */
 .map{margin-top:60px}
 iframe{
   width:100%;height:300px;
-  border:2px solid #d6b97a;
+  border:2px solid #cfd4d8;
 }
 
 /* QR */
-.qr{margin-top:50px}
+.qr{margin-top:50px;color:#e5e8eb}
 
 @media(max-width:600px){
   .wedding-title{font-size:54px}
@@ -196,13 +198,13 @@ iframe{
 
 <body>
 
-<!-- Gold Dust -->
+<!-- Silver Dust -->
 <script>
-for(let i=0;i<55;i++){
+for(let i=0;i<60;i++){
   let d=document.createElement("div");
   d.className="dust";
   d.style.left=Math.random()*100+"vw";
-  d.style.animationDelay=Math.random()*22+"s";
+  d.style.animationDelay=Math.random()*24+"s";
   document.body.appendChild(d);
 }
 </script>
@@ -214,10 +216,10 @@ for(let i=0;i<55;i++){
 <div class="invitation">
 
 <svg class="corner top-left" viewBox="0 0 200 200">
-  <path d="M10,120 C60,20 160,20 190,120" fill="none" stroke="#d6b97a" stroke-width="3"/>
+  <path d="M10,120 C60,20 160,20 190,120" fill="none" stroke="#cfd4d8" stroke-width="3"/>
 </svg>
 <svg class="corner bottom-right" viewBox="0 0 200 200">
-  <path d="M10,120 C60,20 160,20 190,120" fill="none" stroke="#d6b97a" stroke-width="3"/>
+  <path d="M10,120 C60,20 160,20 190,120" fill="none" stroke="#cfd4d8" stroke-width="3"/>
 </svg>
 
 <h2>You Are Cordially Invited</h2>
@@ -241,8 +243,8 @@ request the honor of your presence
 <div class="countdown" id="countdown"></div>
 
 <div class="photos">
-<img src="img2.png">
-<img src="img1.png">
+  <img src="img2.png">
+  <img src="img1.png">
 </div>
 
 <div class="details">
@@ -279,8 +281,8 @@ setInterval(()=>{
 new QRCode(document.getElementById("qrcode"),{
   text:window.location.href,
   width:140,height:140,
-  colorDark:"#d6b97a",
-  colorLight:"#071917"
+  colorDark:"#cfd4d8",
+  colorLight:"#1c1f23"
 });
 </script>
 
